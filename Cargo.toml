@@ -1,0 +1,25 @@
+[package]
+name = "mbc-cli"
+version = "0.2.0"
+edition = "2021"
+description = "CLI tool for MBC (Mercado Bitcoin) - Access Mercado Bitcoin API with Trading Strategy"
+authors = ["diogokuiaski"]
+license = "MIT"
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.4", features = ["derive"] }
+dotenv = "0.15"
+anyhow = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+chrono = { version = "0.4", features = ["serde"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
